@@ -10,24 +10,25 @@ if (! class_exists('WP_CLI')) {
 	return;
 }
 
-class DBbReset {
+class DBbReset
+{
 	/**
 	*  Create a DB-Dump in wp-content/ct-dump/base-db-dump.sql
 	*/
 	public function createDump()
-		{
+	{
 			$config = $this->getconfig();
-			if (!file_exists($config->path)) {
-				exec('mkdir ' . $config->path);
-			}
+		if (!file_exists($config->path)) {
+			exec('mkdir ' . $config->path);
+		}
 			WP_CLI::runcommand('db export ' . $config->path . $config->file);
 			WP_CLI::success('Created Database-Dump in ' . $config->path . $config->file);
-		}
+	}
 	/**
 	* Resets the installation
 	*/
 	public function resetInstallation()
-		{
+	{
 		$config = $this->getConfig();
 		if (!file_exists($config->path . $config->file)) {
 			WP_CLI::error('No basedump found. Run "wp ct create-dump" and try again');
@@ -43,5 +44,18 @@ class DBbReset {
 		//reset plugin / theme files?
 	}
 
+	private function getConfig()
+	{
+
+		$tmp = WP_CLI::get_config();
+		$config = new stdClass();
+		$config->path = $tmp['path'] . 'wp-content/ct-dump/';
+		$config->file = 'base-db-dump.sql';
+		return $config;
+	}
 }
 
+$resetCommand = new ResetDB();
+
+WP_CLI::add_command('ct create-dump', [$resetCommand, 'createDump']);
+WP_CLI::add_command('ct reset-database', [$resetCommand, 'resetInstallation']);
