@@ -4,28 +4,26 @@ public function registerPostType()
 	$labels = apply_filters(
 		'post-type-labels',
 		array(
-		'name'               => _x('Products', 'Bottle', 'wpplugin_republica_product'),
-		'singular_name'      => _x('Product', 'Bottle', 'wpplugin_republica_product'),
-		'menu_name'          => __('Product', 'wpplugin_republica_product'),
-		'name_admin_bar'     => __('Product', 'wpplugin_republica_product'),
-		'parent_item_colon'  => __('Parent Product', 'wpplugin_republica_product'),
-		'all_items'          => __('All Products', 'wpplugin_republica_product'),
-		'add_new_item'       => __('New Product', 'wpplugin_republica_product'),
-		'add_new'            => __('New Product', 'wpplugin_republica_product'),
-		'new_item'           => __('New Product', 'wpplugin_republica_product'),
-		'edit_item'          => __('Edit Product', 'wpplugin_republica_product'),
-		'update_item'        => __('Update Product', 'wpplugin_republica_product'),
-		'view_item'          => __('View Product', 'wpplugin_republica_product'),
-		'search_items'       => __('Search Product', 'wpplugin_republica_product'),
-		'not_found'          => __('No Product found', 'wpplugin_republica_product'),
-		'not_found_in_trash' => __('No Product found in trash', 'wpplugin_republica_product'),
-		)
-	);
+		'name'               => _x('Products', 'Bottle', 'wpplugin-'
+		'singular_name'      => _x('Product', 'Bottle', 'wpplugin-'
+		'menu_name'          => __('Product', 'wpplugin-'
+		'name_admin_bar'     => __('Product', 'wpplugin-'
+		'parent_item_colon'  => __('Parent Product', 'wpplugin-'
+		'all_items'          => __('All Products', 'wpplugin-'
+		'add_new_item'       => __('New Product', 'wpplugin-'
+		'add_new'            => __('New Product', 'wpplugin-'
+		'new_item'           => __('New Product', 'wpplugin-'
+		'edit_item'          => __('Edit Product', 'wpplugin-'
+		'update_item'        => __('Update Product', 'wpplugin-'
+		'view_item'          => __('View Product', 'wpplugin-'
+		'search_items'       => __('Search Product', 'wpplugin-'
+		'not_found'          => __('No Product found', 'wpplugin-'
+		'not_found_in_trash' => __('No Product found in trash', 'wpplugin-'));
 	$args = apply_filters(
 		'post-type-args',
 		array(
-		'label'               => __('Bottles', 'wpplugin_republica_product'),
-		'description'         => __('Registered bottles', 'wpplugin_republica_product'),
+		'label'               => __('Bottles', 'wpplugin-'
+		'description'         => __('Registered bottles', 'wpplugin-'
 		'labels'              => $labels,
 		'supports'            => array(),
 		'taxonomies'          => array(),
@@ -42,8 +40,6 @@ public function registerPostType()
 		'publicly_queryable'  => false,
 		'rewrite'             => array('slug' => 'bottle'),
 		'capability_type'     => 'post',
-		'menu_icon'           => 'dashicons-cart'
-		)
-	);
+		'menu_icon'           => 'dashicons-cart'));
 	register_post_type('ct_bottle', $args);
 }
