@@ -36,6 +36,10 @@ curl -u username:password http://www.example.com/
 curl -L http://www.example.com/
 
 
+#Get your routers IP
+curl ifconfig.me #returns only the IP
+curl ifconfig.me/all.json
+
 #3. Reading URL’s with variable GET parameters
 
 #You can also download pages with a variable GET parameter. For e.g take the following url:
