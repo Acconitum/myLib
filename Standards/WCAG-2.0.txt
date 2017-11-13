@@ -1,0 +1,37 @@
+Web Content Accessibility Guideline
+
+Richtlinie 1.1
+Textalternativen: Stellen Sie Textalternativen für alle Nicht-Text-Inhalte zur Verfügung, so dass diese in andere vom Benutzer benötigte Formen geändert werden können, wie zum Beispiel Großschrift, Braille, Symbole oder einfachere Sprache.
+
+Richtlinie 1.2
+Zeitbasierte Medien: Stellen Sie Alternativen für zeitbasierte Medien zur Verfügung.
+
+Richtlinie 1.3
+Anpassbar: Erstellen Sie Inhalte, die auf verschiedene Arten dargestellt werden können (z.B. einfacheres Layout), ohne dass Informationen oder Struktur verloren gehen.
+
+Richtlinie 1.4
+Unterscheidbar: Machen Sie es Benutzern leichter, Inhalt zu sehen und zu hören einschließlich der Trennung von Vorder- und Hintergrund.
+
+Richtlinie 2.1
+Per Tastatur zugänglich: Sorgen Sie dafür, dass alle Funktionalitäten per Tastatur zugänglich sind.
+
+Richtlinie 2.2
+Ausreichend Zeit: Geben Sie den Benutzern ausreichend Zeit, Inhalte zu lesen und zu benutzen.
+
+Richtlinie 2.3
+Anfälle: Gestalten Sie Inhalte nicht auf Arten, von denen bekannt ist, dass sie zu Anfällen führen.
+
+Richtlinie 2.4
+Navigierbar: Stellen Sie Mittel zur Verfügung, um Benutzer dabei zu unterstützen zu navigieren, Inhalte zu finden und zu bestimmen, wo sie sich befinden.
+
+Richtlinie 3.1
+Lesbar: Machen Sie Inhalt lesbar und verständlich.
+
+Richtlinie 3.2
+Vorhersehbar: Sorgen Sie dafür, dass Webseiten vorhersehbar aussehen und funktionieren.
+
+Richtlinie 3.3
+Hilfestellung bei der Eingabe: Helfen Sie den Benutzern dabei, Fehler zu vermeiden und zu korrigieren.
+
+Richtlinie 4.1
+Kompatibel: Maximieren Sie die Kompatibilität mit aktuellen und zukünftigen Benutzeragenten, einschließlich assistierender Techniken.

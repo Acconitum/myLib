@@ -1,6 +1,6 @@
 // first of all install mapbox.js with bower or npm
 // second add a div with id map to your DOM (<div id="map" style="height: 200px;"></div>)
-// needs styling for heigth!
+// needs styling for height!
 
 (function($) {
 	$map = $('#map');
