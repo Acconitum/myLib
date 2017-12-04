@@ -1,0 +1,29 @@
+@mixin socialmediaicon() {
+padding: 0 !important;
+@extend .fa;
+font-size: 20px;
+text-indent: -999rem;
+position: relative;
+width: 20px;
+&:before {
+    display: inline-block;
+    font-size: inherit;
+    font-family: FontAwesome;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-indent: 0;
+}
+&[href*="facebook.com"]:before {
+    content: '\f230';
+}
+&[href*="instagram.com"]:before {
+    content: '\f16d';
+}
+&[href*="twitter.com"]:before {
+    content: '\f099';
+}
+&[href*="linkedin.com"]:before {
+    content: '\f0e1';
+}
