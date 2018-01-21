@@ -1,0 +1,73 @@
+<html>
+	<body>
+		<style>
+			.bar-container {
+				height: 5px;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			.bar {
+				height: 100%;
+				width: 0%;
+				background-color: lime;
+			
+			}
+
+			.item {
+				height: 20px;
+				width: 200px;
+				background-color: blue;
+			}
+
+		</style>
+
+		<div class="bar-container">
+			<div class="bar" data-bar>
+			</div>
+		</div>
+
+		<div class="item" data-pause-animation></div>
+		
+		<script type="text/javascript">
+
+			var bar = document.querySelectorAll('[data-bar]')[0];
+			var barContainer = document.getElementsByClassName('bar-container')[0];
+			var containerWidth = parseInt(window.getComputedStyle(barContainer).width);
+			var widthToAdd = (containerWidth / 100);
+			var elements = document.querySelectorAll('[data-pause-animation]');
+			var isAnimationRunning = true;
+			document.addEventListener('mouseover', function(event) {
+				if (event.target.hasAttribute('data-pause-animation')) {
+					isAnimationRunning = false;
+				}
+			});
+			
+			document.addEventListener('mouseout', function(event) {
+				if (event.target.hasAttribute('data-pause-animation')) {
+					isAnimationRunning = true;
+				}
+			});
+
+			document.addEventListener('huhu', function(event) {
+					console.log('huhu');
+			});
+			var myEvent = new CustomEvent('huhu');
+			
+			var intervalID = window.setInterval(function() {
+				if (isAnimationRunning) {				
+					var barWidth = parseFloat(window.getComputedStyle(bar).width);
+					if (containerWidth > barWidth) {
+						bar.style.width = (barWidth + 2) + "px";
+					} else {
+						
+						//clearInterval(intervalID);
+						document.dispatchEvent(myEvent);
+						bar.style.width = "0px";
+					}
+				}
+			}, 10);
+			
+		</script>
+	</body>
+</html>
