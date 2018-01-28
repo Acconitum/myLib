@@ -29,6 +29,7 @@ for line in file:lines() do
 
     if line:find('}$') then
         functionFound = false;
+        exportFile:close();
     end
 end
 
