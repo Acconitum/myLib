@@ -24,7 +24,7 @@ for line in file:lines() do
     end
 
     if functionFound then
-        exportFile:write(line);
+        exportFile:write(line .. '\n');
     end
 
     if line:find('}$') then
