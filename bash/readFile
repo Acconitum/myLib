@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+# read file word for word
+c=1;
+for word in $(cat $1); do
+    echo "line ${c}: ${word}";
+    c=$(($c + 1));
+done
+
+# read file line for line
+c=1;
+while read line; do
+    echo "line ${c}: ${line}";
+    c=$(($c + 1));
+done < $1
