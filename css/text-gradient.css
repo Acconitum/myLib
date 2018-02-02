@@ -1,0 +1,25 @@
+h1 {
+	position: relative;
+		text-align: center;
+
+			&[data-text] {
+						position: relative;
+								color: $primary-color;;
+									}
+										
+										&[data-text]::before {
+													content: attr(data-text);
+															z-index: 2;
+																	color: #01c442;
+																			width: 100%;
+																					text-align: center;
+																							position: absolute;
+																									left: 0;
+																											-webkit-mask-image: -webkit-gradient(
+																														linear, 
+																																	left top, left bottom, 
+																																				from(#002b11), 
+																																							color-stop(40%,  rgba(0,0,0,0))
+																																									);
+																										}
+}
