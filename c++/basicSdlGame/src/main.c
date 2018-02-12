@@ -9,11 +9,8 @@ int main(void) {
 
     Game* game = new Game();
 
-    int c = 0;
     while ( game->isRunning() ) {
-        //std::cout << c << std::endl;
         game->run();
-        //c++;
     }
 
     game->quit();
