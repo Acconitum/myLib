@@ -1,0 +1,2 @@
+#show date in titlebar on gnom desktop environment
+gsettings set org.gnome.desktop.interface clock-show-date true
