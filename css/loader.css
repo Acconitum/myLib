@@ -1,3 +1,12 @@
+/*
+ * Usage:
+ * <div class="loader-wrap">
+ *	<div class="loader">loading...</div>
+ * </div>
+ *
+ */
+
+
 .loader-wrap {
   overflow: hidden;
 }
