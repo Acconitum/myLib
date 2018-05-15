@@ -1,0 +1,23 @@
+# install lftp
+sudo dnf install -y lftp
+
+# create alias in .basshrc
+alias ftp='lftp'
+
+# connect to ftp server 
+lftp -u <user> <server>
+
+# ignore no ssl certificate
+set ssl:verify-certificate no
+
+# download a file
+get filename
+
+# download a directory recursive
+mirror directoryname
+
+# upload a file
+put filename
+
+# upload a directory
+mirror -R directoryname
