@@ -1,0 +1,70 @@
+<style>
+	.menu-icon {
+		position: absolute;
+		right: 20px;
+		top: 8px;
+		width: 30px;
+		height: 30px;
+		padding: rem-calc(7px) rem-calc(4px);
+		z-index: 10;
+	}
+
+	.menu-icon-stripe-wrap {
+		display: block;
+		position: relative;
+	}
+
+	.menu-icon-stripe {
+		height: 2px;
+		display: block;
+		width: 22px;
+		background-color: green;
+		border-radius: 2px;
+		transition: transform 200ms, opacity 200ms, margin 200ms, background-color 200ms ease-in-out;
+	}
+
+	.menu-icon-stripe-middle {
+		margin: rem_calc(6px) 0;
+	}
+
+	.is--menu-open .menu-icon-stripe-middle {
+		margin: rem_calc(6px) 0;
+	}
+
+	.is--menu-open .menu-icon-stripe-middle {
+		opacity: 0;
+	}
+
+	.is--menu-open .menu-icon-stripe-first {
+		position: absolute;
+		top: 50%;
+		transform: rotateZ(45deg) translateY(-50%);
+	}
+
+	.is--menu-open .menu-icon-stripe-last {
+		position: absolute;
+		bottom: 50%;
+		transform: rotateZ(-45deg) translateY(50%);
+	}
+</style>
+
+<script type="text/javascript">
+	(function ($) {
+		$(document).ready(function () {
+			$('[data-open-navigation]').on('click.open-navigation', function () {
+				$('body').toggleClass('navigation-open');
+
+			});
+		});
+	})(jQuery);
+</script>
+
+
+
+<button class="menu-icon" type="button" data-toggle data-open-navigation>
+	<span class="menu-icon-stripe-wrap">
+		<span class="menu-icon-stripe menu-icon-stripe-first"></span>
+		<span class="menu-icon-stripe menu-icon-stripe-middle"></span>
+		<span class="menu-icon-stripe menu-icon-stripe-last"></span>
+	</span>
+</button>

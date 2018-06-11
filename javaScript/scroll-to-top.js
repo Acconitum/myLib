@@ -1,8 +1,8 @@
 (function ($) {
 	$(document).ready(function () {
-		$("[data-back-to-top]").on('click', function () {
+		$("[data-scroll-to-top]").on('click touchstart', function () {
 			//1 second of animation time
-			$("html").animate({ scrollTop: 0 }, 1000);
+			$("html, body").animate({ scrollTop: 0 }, 1000);
 		});
 	});
 })(jQuery);
