@@ -1,25 +1,53 @@
 (function ($) {
 
-	var sidebarStopElement = $('[data-sidebar-stop]')
-	var sidebar = $('[data-social-media-sidebar]');
-	var spaceBelow = $(window).height() - sidebar[0].getBoundingClientRect().bottom;
-	var sidebarStop = parseInt(sidebarStopElement.offset().top) + parseInt(spaceBelow) - parseInt(sidebar.height());
-	var topBefore = sidebar.css('top');
+	var sidebarStopElement,
+		sidebar,
+		spaceBelow,
+		sidebarStop,
+		topBefore;
+
+	var	isSidebarReady = false;
+
+	function init() {
+		if($('.at-share-btn-elements').length === 1) {
+
+			isSidebarReady = true;
+			sidebarStopElement = $('[data-sidebar-stop]')
+			sidebar = $('[data-social-media-sidebar]');
+
+			if (sidebar.length > 0) {
+				spaceBelow = $(window).height() - sidebar[0].getBoundingClientRect().bottom;
+				topBefore = sidebar.css('top');
+			}
+
+			return;
+		} else {
+
+			setTimeout( function() {
+				init();
+			}, 500 );
+		}
+	}
 
 	function getDistance(sidebarStop) {
 		return sidebarStop - $(window).scrollTop();
 	}
 
-	$(document).on('scroll', function () {
-		if (sidebar && sidebarStop) {
+	init();
 
-			if (getDistance(sidebarStop) <= 10) {
+	$(document).on('scroll', function () {
+		if (isSidebarReady && sidebar.length > 0) {
+
+			sidebarStop = $(window).scrollTop() + $(window).height() - spaceBelow;
+
+			if ( parseInt(sidebarStopElement.offset().top) - sidebarStop <= 0 ) {
 				sidebar.css('position', 'absolute');
-				sidebar.css('top', (parseInt(sidebarStopElement.offset().top) - (parseInt(sidebar.height()) / 2)) + 'px');
+				sidebar.css('top', (parseInt(sidebarStopElement.offset().top) - 10 - (parseInt(sidebar.outerHeight()))) + 'px');
 			} else {
 				sidebar.css('position', 'fixed');
 				sidebar.css('top', topBefore);
 			}
 		}
 	});
+
 })(jQuery);
