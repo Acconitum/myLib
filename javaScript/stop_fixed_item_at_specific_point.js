@@ -6,10 +6,10 @@
 		sidebarStop,
 		topBefore;
 
-	var	isSidebarReady = false;
+	var isSidebarReady = false;
 
 	function init() {
-		if($('.at-share-btn-elements').length === 1) {
+		if ($('[data-share-button-sidebar]').length === 1) {
 
 			isSidebarReady = true;
 			sidebarStopElement = $('[data-sidebar-stop]')
@@ -23,31 +23,54 @@
 			return;
 		} else {
 
-			setTimeout( function() {
+			setTimeout(function () {
 				init();
-			}, 500 );
+			}, 500);
 		}
 	}
 
-	function getDistance(sidebarStop) {
-		return sidebarStop - $(window).scrollTop();
+	var scrollBefore = $(window).scrollTop();
+	function isScrollingUp() {
+		if (scrollBefore < $(window).scrollTop()) {
+			scrollBefore = $(window).scrollTop();
+			return false;
+		} else {
+			scrollBefore = $(window).scrollTop();
+			return true;
+		}
 	}
 
 	init();
 
 	$(document).on('scroll', function () {
-		if (isSidebarReady && sidebar.length > 0) {
 
-			sidebarStop = $(window).scrollTop() + $(window).height() - spaceBelow;
+		if ($(window).width() >= 768) {
+			if (isSidebarReady && sidebar.length > 0) {
 
-			if ( parseInt(sidebarStopElement.offset().top) - sidebarStop <= 0 ) {
-				sidebar.css('position', 'absolute');
-				sidebar.css('top', (parseInt(sidebarStopElement.offset().top) - 10 - (parseInt(sidebar.outerHeight()))) + 'px');
+				sidebarStop = $(window).scrollTop() + $(window).height() - spaceBelow;
+
+				if (parseInt(sidebarStopElement.offset().top) - parseInt($('.share-bar-wrap').outerHeight()) - sidebarStop <= 0) {
+					sidebar.css('position', 'absolute');
+					sidebar.css('top', (parseInt(sidebarStopElement.offset().top) - (parseInt(sidebar.outerHeight())) - parseInt($('.share-bar-wrap').outerHeight() + 160)) + 'px');
+				} else {
+					sidebar.css('position', 'fixed');
+					sidebar.css('top', topBefore);
+				}
+			}
+		} else {
+
+			if (isScrollingUp()) {
+				$('[data-social-media-sidebar]').addClass('is--visible');
 			} else {
-				sidebar.css('position', 'fixed');
-				sidebar.css('top', topBefore);
+				$('[data-social-media-sidebar]').removeClass('is--visible');
 			}
 		}
+	});
+
+	$(document).ready(function () {
+		$('[data-toggle-mobile-share]').on('click', function () {
+			$('body').toggleClass('is--mobile-share-open');
+		});
 	});
 
 })(jQuery);
