@@ -1,29 +1,24 @@
-.card-list {
-   display: flex;
-   .card-holder {
+.ct-card-list {
+    .row {
       display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
-   }
-   .card {
-      flex: 1 1 auto; // auto because of IE11!
-		display: flex;
-		flex-direction: column;
-      .card-section-more {
-         margin-top: auto;
-      }
-   }
-}
-
-// This bit is only for the "flood" link
-.card {
-   position: relative;
-   .flood {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      text-indent: -100vw;
-   }
+      flex-wrap: wrap;
+    }
+    .column {
+        display: flex;
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: #{ map-get($grid-column-gutter, 'small') }; // Add rules for other breakpoints if necessary
+        }
+       .post-thumbnail-figure {
+          flex: 0 0 auto;
+       }
+        .card-section-text {
+            flex: 1 0 auto;
+        }
+        .card-section-more {
+          margin-top: auto;
+        }
+    }
 }
