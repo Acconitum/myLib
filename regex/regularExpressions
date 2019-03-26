@@ -1,0 +1,4 @@
+// javaScript
+
+// Find a word but exclude text inside anchor tags (backslashes must be escaped additionaly)
+(?!<a[^>]*?>)(\bUnivers(?!([^<]+)?>)(?![\w-])\b)(?![^<]*?<\/a>)
