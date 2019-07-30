@@ -2,3 +2,6 @@
 
 // Find a word but exclude text inside anchor tags (backslashes must be escaped additionaly)
 (?!<a[^>]*?>)(\bUnivers(?!([^<]+)?>)(?![\w-])\b)(?![^<]*?<\/a>)
+
+// find all uikit data-attributes with missing data- prefix
+grep -nrP '(<.*)(!?")( uk-.*)'
