@@ -1,0 +1,8 @@
+Errorhandlingis ossible over three ways:
+1. uid of a Page which getting fetched with curl (WTF)
+The id is hardcoded inside root/config/sites/main-site/config.yaml (Choose the right one for your environment
+2. A Fluid Template
+-> Not yet found a solution for handle typoscript inside the Layout (Tryed to extend the Layout)
+3. Write your own PHP class for errorhandling
+
+We are currently using method 1. 
