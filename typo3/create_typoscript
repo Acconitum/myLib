@@ -1,0 +1,72 @@
+For a new typoscript file goto extension_name/Configuration/TypoScript/
+
+For typoscript available in views create your file inside Content/lib
+
+Create file e.g. sidebar.typoscript
+
+add your typoscript code there
+
+Goto extension_name/Configuration/TypoScript/setup.typoscript and include your file with an import-statement
+Example:
+@import './Content/lib/sidebar.typoscript'
+
+You can link a templatefile to the typoscript as follows:
+---
+
+lib.submenu = COA # Content Object
+lib.submenu.10 = FLUIDTEMPLATE
+lib.submenu.10 {
+   file = EXT:{$plugin.templatebootstrap.packageKey}/Resources/Private/Partials/Submenu.html
+   dataProcessing {
+      10 = Staempfli\TemplateBootstrap\DataProcessing\MenuDataProcessor
+   }
+}
+
+---
+
+Notice the part {$plugin.templateBootstrap.packageKey} whitch is responsible for the right templatepath
+
+In this Example, there is an DataProcessor included for that specific tamplate. If a template getting tricky and
+needs more complex dataProcessing, go for the usage of a DataProcessor (Aka DataProvider in Laravel)
+For DataProcessor creation create directory extensin_name/Classes/DataProcessing
+In this directory add a file called SidebarDataProcessor.php
+
+
+---
+
+<?php
+namespace Staempfli\TemplateBootstrap\DataProcessing;
+
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+
+class MenuDataProcessor implements DataProcessorInterface
+{
+    private $pageSelect;
+
+    public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
+    {
+        $processedData['data']['sidebar_content'] = $this->getSidebarContent();
+        return $processedData;
+    }
+
+
+    protected function getSidebarContent()
+    {
+        return 'Whatever this DataProcessor should to return';
+    }
+}
+
+---
+
+As soon as your typoscript is written and registered, inlcude it with fluid-directive:
+
+---
+<f:cObject typoscriptObjectPath="lib.submenu" />
+---
+
+ATTENTION:
+
+Make sure, every single occurence of e.g. sidebar is written all the same (Filenames/typoscript)
+Exception is the Fluid Templatename
+
